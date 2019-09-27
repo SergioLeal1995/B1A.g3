@@ -4,7 +4,7 @@ import cmath
 import numpy as np 
 
 
-def suma(x,y):	#definicion de la función suma
+def sumavec(x,y):	#definicion de la función suma
 	print xx+yy
 
 #inicio del programa principal
@@ -13,4 +13,4 @@ y = input("Ingrese el vector de y: ")
 xx = np.array(x)
 yy = np.array(y)
 
-suma(x,y)	#invocación de la función
+sumavec(x,y)	#invocación de la función
