@@ -23,5 +23,5 @@ class CalculadoraBasica:
 #Basica.resta(x,y)
 #Basica.multiplicar(x,y)
 #Basica.dividir(x,y)
-		4 punto vectores, cada vector es una fucion muestra
-estocasticos matrices, (conjunto de vectores)(resultado de un examen uns fucnio, hable, y los ussuarios tiene voces diferentes el promedio daría otra voz, entonces las 50 voces ingresan como una matriz y al sacar el promedio sacaria una nueva matriz y el resultado seria un vector)
+		#4 punto vectores, cada vector es una fucion muestra
+#estocasticos matrices, (conjunto de vectores)(resultado de un examen uns #fucnio, hable, y los ussuarios tiene voces diferentes el promedio daría #otra voz, entonces las 50 voces ingresan como una matriz y al sacar el #promedio sacaria una nueva matriz y el resultado seria un vector)

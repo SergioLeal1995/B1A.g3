@@ -14,7 +14,7 @@ x = input("Ingrese el segundo numero: ")
 
 for i in range(5):
 	y = math.cos(x_v[i])
-	print "El valor para el coseno de ", x_v[i] , " es: ", y
+	print ("El valor para el coseno de ", x_v[i] , " es: ", y)
 print ""	# Salto de línea                                             
 
 
