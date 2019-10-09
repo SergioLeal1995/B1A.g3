@@ -58,10 +58,10 @@ while(True):
 			elif(opcion==10):
 				var,desviacion = calcula.varianza(xmed,N)
 				print "varianza: ",var, "y desviación estandar: ",desviacion
-			raw_input(" ")
-			os.system ("clear") 
 			else:
 				print "Opción incorrecta."
+			raw_input(" ")
+			os.system ("clear") 
 print "Adios!"
 
 
