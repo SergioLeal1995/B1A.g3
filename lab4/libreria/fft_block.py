@@ -38,28 +38,39 @@ class flujograma(gr.top_block):
  
         # Las variables usadas en el flujograma
         samp_rate = 32000
-        f=1000
+        f=2500
+        N= 456
         # Los bloques
-        self.src = analog.sig_source_f(samp_rate, analog.GR_SIN_WAVE, f, 1, 0)
-        self.nse = analog.noise_source_f(analog.GR_GAUSSIAN, 0.1)
-        self.add = misbloques.e_add_ff(0.5)
-        # self.thr = blocks.throttle(gr.sizeof_gr_complex, samp_rate, True)
-        self.snk = qtgui.time_sink_f(
-            516, # numero de muestras en la ventana del osciloscopio
+        src = analog.sig_source_f(samp_rate, analog.GR_SIN_WAVE, f, 1, 0)
+        nse = analog.noise_source_f(analog.GR_GAUSSIAN, 0.1)
+        add = misbloques.e_add_ff(1.0)
+        snk = qtgui.time_sink_f(
+            512, # numero de muestras en la ventana del osciloscopio
             samp_rate,
             "senal promediada", # nombre que aparece en la grafica
             1 # Nuemero de entradas del osciloscopio
         )
- 
+        str2vec=blocks.stream_to_vector(gr.sizeof_float*1, N)
+        e_fft=misbloques.e_vector_fft_ff(N)
+        vsnk = qtgui.vector_sink_f(
+            N,
+            -samp_rate/2.,
+            samp_rate/N,
+            "frecuencia",
+            "Magnitud",
+            "FT en Magnitud",
+            1 # Number of inputs
+        )
+        vsnk.enable_autoscale(True)
         # Las conexiones
-        self.connect(self.src, (self.add, 0))
-        self.connect(self.nse, (self.add, 1))
-        #self.connect(self.add, self.thr, self.snk)
-        self.connect(self.add, self.snk)
+        self.connect(src, (add, 0))
+        self.connect(nse, (add, 1))
+        self.connect(add, snk)
+        self.connect(add, str2vec, e_fft, vsnk)
  
         # La configuracion para graficar
-        self.pyobj = sip.wrapinstance(self.snk.pyqwidget(), Qt.QWidget)
-        self.pyobj.show()
+        pyobj = sip.wrapinstance(vsnk.pyqwidget(), Qt.QWidget)
+        pyobj.show()
  
 ###########################################################
 ###                LA CLASE PRINCIPAL                   ###
