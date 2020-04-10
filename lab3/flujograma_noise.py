@@ -2,13 +2,15 @@
 # -*- coding: utf-8 -*-
 # Lo de arriba es para que los IDE conozcan en que esta escrito este codigo 
 ###########################################################
-# Puedes encontrar este codigo como objeto_ej4.py en:    ##
+# Puedes encontrar este codigo como objeto_ej2.py en:    ##
 # https://sites.google.com/saber.uis.edu.co/comdig/sw    ##
 ###########################################################
 ###           IMPORTACION DE LIBRERIAS                  ###
 ###########################################################
+ 
 # Libreria obligatoria
 from gnuradio import gr
+from gnuradio import audio
  
 # Librerias particulares
 from gnuradio import analog
@@ -20,15 +22,10 @@ from gnuradio import qtgui
 from PyQt4 import Qt # si no se acepta PyQt4 cambie PyQt4 por PyQt5
 import sys, sip
  
-# Ahora debes importar tu libreria. A continuacion suponemos que tu libreria ha sido
-# guardada en un archivo llamado lib_comdig_code.py
-import lib_comdig_code as misbloques  
- 
- 
 ###########################################################
 ###           LA CLASE DEL FLUJOGRAMA                   ###
 ###########################################################
-class flujograma(gr.top_block):
+class flujograma_noise(gr.top_block):
     def __init__(self):
         gr.top_block.__init__(self)
  
@@ -36,41 +33,43 @@ class flujograma(gr.top_block):
         ###   EL FLUJOGRAMA                          ###
         ################################################
  
-        # Las variables usadas en el flujograma
+        # Las variables
         samp_rate = 32000
-        f=2500
-        N= 158
+        fftsize = 2048
+	ampl = 8
+ 
         # Los bloques
-        src = analog.sig_source_f(samp_rate, analog.GR_SIN_WAVE, f, 1, 0)
-        nse = analog.noise_source_f(analog.GR_GAUSSIAN, 0.1)
-        add = misbloques.e_add_ff(1.0)
-        snk = qtgui.time_sink_f(
-            512, # numero de muestras en la ventana del osciloscopio
-            samp_rate,
-            "senal promediada", # nombre que aparece en la grafica
-            1 # Nuemero de entradas del osciloscopio
+        self.src0 = analog.sig_source_f(samp_rate, analog.GR_SIN_WAVE, 350, ampl)
+	#self.src1 = analog.sig_source_f(samp_rate, analog.GR_SIN_WAVE, 440, ampl)# src1 y src0 son señales senoidales
+	#PARA LA SEÑAL ALEATORIA SE DESCOMENTA LA SENOIDAL SRC1 Y SE HABILITA LA SIGUIENTE LINEA:
+	self.src1 = analog.noise_source_f(analog.GR_GAUSSIAN, ampl)
+
+	self.dst = audio.sink(samp_rate, ""	)
+        #self.nse = analog.noise_source_c(analog.GR_GAUSSIAN, 0.1)
+        self.add = blocks.add_ff(vlen=1)
+        self.thr = blocks.throttle(4, samp_rate,True)
+        self.snk = qtgui.sink_f(
+            fftsize, #fftsize
+            firdes.WIN_BLACKMAN_hARRIS, #wintype
+            0, #fc
+            samp_rate, #bw
+            "", #name
+            True, #plotfreq
+            True, #plotwaterfall
+            True, #plottime
+            True, #plotconst
         )
-        str2vec=blocks.stream_to_vector(gr.sizeof_float*1, N)
-        e_fft=misbloques.e_vector_fft_ff(N)
-        vsnk = qtgui.vector_sink_f(
-            N,
-            -samp_rate/2.,
-            samp_rate/N,
-            "frecuencia",
-            "Magnitud",
-            "FT en Magnitud",
-            1 # Number of inputs
-        )
-        vsnk.enable_autoscale(True)
+ 
         # Las conexiones
-        self.connect(src, (add, 0))
-        self.connect(nse, (add, 1))
-        self.connect(add, snk)
-        self.connect(add, str2vec, e_fft, vsnk)
+        self.connect(self.src0, (self.dst, 0))
+        self.connect(self.src1, (self.dst, 1))
+	self.connect(self.src0, (self.add, 0))
+	self.connect(self.src1, (self.add, 1))
+        self.connect(self.add, self.thr, self.snk)
  
         # La configuracion para graficar
-        pyobj = sip.wrapinstance(vsnk.pyqwidget(), Qt.QWidget)
-        pyobj.show()
+        self.pyobj = sip.wrapinstance(self.snk.pyqwidget(), Qt.QWidget)
+        self.pyobj.show()
  
 ###########################################################
 ###                LA CLASE PRINCIPAL                   ###
@@ -78,8 +77,8 @@ class flujograma(gr.top_block):
 def main():
     # Para que lo nuestro sea considerado una aplicación tipo QT GUI
     qapp = Qt.QApplication(sys.argv)
-    simulador_de_la_envolvente_compleja = flujograma()
-    simulador_de_la_envolvente_compleja.start()
+    tb= flujograma_noise()
+    tb.start()
     # Para arranque la parte grafica
     qapp.exec_()
  

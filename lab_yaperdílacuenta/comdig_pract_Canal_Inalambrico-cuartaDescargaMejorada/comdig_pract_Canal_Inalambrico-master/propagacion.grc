@@ -310,7 +310,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>0.759218224617534</value>
+      <value>-2.452187599052033</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -728,7 +728,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1616, 548)</value>
+      <value>(1400, 620)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -736,11 +736,11 @@
     </param>
     <param>
       <key>id</key>
-      <value>distance_m</value>
+      <value>distance</value>
     </param>
     <param>
       <key>value</key>
-      <value>distance_value</value>
+      <value>distance_val</value>
     </param>
   </block>
   <block>
@@ -751,7 +751,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>0.1</value>
+      <value>0.3</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -759,7 +759,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1712, 620)</value>
+      <value>(1440, 756)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -771,11 +771,11 @@
     </param>
     <param>
       <key>id</key>
-      <value>distance_value</value>
+      <value>distance_val</value>
     </param>
     <param>
       <key>label</key>
-      <value>Distancia al receptor</value>
+      <value></value>
     </param>
     <param>
       <key>min_len</key>
@@ -818,7 +818,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1544, 548)</value>
+      <value>(1400, 556)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -830,7 +830,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>fc_value</value>
+      <value>fc_val</value>
     </param>
   </block>
   <block>
@@ -841,7 +841,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>2</value>
+      <value>0.6</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -849,7 +849,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1544, 620)</value>
+      <value>(1296, 756)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -861,74 +861,11 @@
     </param>
     <param>
       <key>id</key>
-      <value>fc_value</value>
+      <value>fc_val</value>
     </param>
     <param>
       <key>label</key>
-      <value>Frecuencia de Portadora</value>
-    </param>
-    <param>
-      <key>min_len</key>
-      <value>200</value>
-    </param>
-    <param>
-      <key>orient</key>
-      <value>Qt.Horizontal</value>
-    </param>
-    <param>
-      <key>start</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>step</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>stop</key>
-      <value>10e6</value>
-    </param>
-    <param>
-      <key>rangeType</key>
-      <value>float</value>
-    </param>
-    <param>
-      <key>widget</key>
-      <value>counter_slider</value>
-    </param>
-  </block>
-  <block>
-    <key>variable_qtgui_range</key>
-    <param>
-      <key>comment</key>
       <value></value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>50</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1544, 748)</value>
-    </param>
-    <param>
-      <key>gui_hint</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>fluctuacion</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>fluactuacion range</value>
     </param>
     <param>
       <key>min_len</key>
@@ -971,7 +908,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1712, 548)</value>
+      <value>(1296, 684)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -983,7 +920,70 @@
     </param>
     <param>
       <key>value</key>
-      <value>fluctuacion</value>
+      <value>fluctuation_val</value>
+    </param>
+  </block>
+  <block>
+    <key>variable_qtgui_range</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>.0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1440, 868)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>fluctuation_val</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value></value>
+    </param>
+    <param>
+      <key>min_len</key>
+      <value>200</value>
+    </param>
+    <param>
+      <key>orient</key>
+      <value>Qt.Horizontal</value>
+    </param>
+    <param>
+      <key>start</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>step</key>
+      <value>0.1</value>
+    </param>
+    <param>
+      <key>stop</key>
+      <value>100</value>
+    </param>
+    <param>
+      <key>rangeType</key>
+      <value>float</value>
+    </param>
+    <param>
+      <key>widget</key>
+      <value>counter_slider</value>
     </param>
   </block>
   <block>
@@ -1525,69 +1525,6 @@
     </param>
   </block>
   <block>
-    <key>analog_agc2_xx</key>
-    <param>
-      <key>attack_rate</key>
-      <value>1e-1</value>
-    </param>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>decay_rate</key>
-      <value>1e-2</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1176, 836)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>gain</key>
-      <value>1.0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>analog_agc2_xx_0</value>
-    </param>
-    <param>
-      <key>max_gain</key>
-      <value>65536</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>reference</key>
-      <value>1.0</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-  </block>
-  <block>
     <key>analog_const_source_x</key>
     <param>
       <key>alias</key>
@@ -1611,7 +1548,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(856, 892)</value>
+      <value>(872, 836)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1693,7 +1630,7 @@
     </param>
     <param>
       <key>Ch_Loss_dB</key>
-      <value>32.4+20*numpy.log(fc)+20*numpy.log(distance_m)</value>
+      <value>32.4+20*numpy.log(fc)+20*numpy.log(distance)</value>
     </param>
     <param>
       <key>Ch_Phoffset</key>
@@ -1717,7 +1654,7 @@
     </param>
     <param>
       <key>Fluctuacion</key>
-      <value>fluctuacion</value>
+      <value>fluctuation</value>
     </param>
     <param>
       <key>Foffset</key>
@@ -1725,11 +1662,11 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(976, 676)</value>
+      <value>(1036, 664)</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>180</value>
+      <value>270</value>
     </param>
     <param>
       <key>id</key>
@@ -1768,7 +1705,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>Fc</key>
@@ -2447,7 +2384,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>/home/sergio/Documentos/Comu/B1A.g3/lab_yaperdílacuenta/comdig_pract_Canal_Inalambrico_TerceraDescarga/comdig_pract_Canal_Inalambrico-master/bush-clinton_debate_waffle.wav</value>
+      <value>/home/sergio/Documentos/Comu/B1A.g3/lab_yaperdílacuenta/comdig_pract_Canal_Inalambrico-cuartaDescargaMejorada/comdig_pract_Canal_Inalambrico-master/bush-clinton_debate_waffle.wav</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -2862,7 +2799,7 @@ print("codigo inverso = ", mapinverse)
     </param>
     <param>
       <key>stream_id</key>
-      <value>R0a</value>
+      <value>R0</value>
     </param>
   </block>
   <block>
@@ -4728,7 +4665,7 @@ print("codigo inverso = ", mapinverse)
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1032, 932)</value>
+      <value>(976, 900)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -4960,7 +4897,7 @@ print("codigo inverso = ", mapinverse)
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1404, 728)</value>
+      <value>(1220, 816)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -4987,7 +4924,7 @@ print("codigo inverso = ", mapinverse)
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1452, 896)</value>
+      <value>(1276, 888)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -5064,7 +5001,7 @@ print("codigo inverso = ", mapinverse)
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -5207,18 +5144,6 @@ def rrcos(Sps,ntaps,beta):
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>analog_agc2_xx_0</source_block_id>
-    <sink_block_id>rational_resampler_xxx_0_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>analog_agc2_xx_0</source_block_id>
-    <sink_block_id>vs_0_2_0_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
     <source_block_id>analog_const_source_x_0</source_block_id>
     <sink_block_id>blocks_multiply_xx_0</sink_block_id>
     <source_key>0</source_key>
@@ -5226,7 +5151,13 @@ def rrcos(Sps,ntaps,beta):
   </connection>
   <connection>
     <source_block_id>b_Canal_simple_cc_0</source_block_id>
-    <sink_block_id>analog_agc2_xx_0</sink_block_id>
+    <sink_block_id>rational_resampler_xxx_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>b_Canal_simple_cc_0</source_block_id>
+    <sink_block_id>vs_0_2_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
